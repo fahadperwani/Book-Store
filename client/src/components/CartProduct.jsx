@@ -12,7 +12,6 @@ function CartProduct({ item, makePayment }) {
   const priceForPayment = price.substring(1);
 
   function handleRemove(item) {
-    console.log("Heyyyyyy");
     dispatch({ type: "REMOVE_FROM_BASKET", item });
   }
   if (genre) {
@@ -44,7 +43,7 @@ function CartProduct({ item, makePayment }) {
               makePayment(token, "REMOVE_FROM_BASKET", { ...item, idx })
             }
             amount={priceForPayment * 100}
-            stripeKey="pk_test_51LbUVJB2VXbC0YGFJuqitsJgqEiseuhvQkIf38lJR76jSAGJ2OZ0gP4fGMc5EX8CQwhN3Tx2UR2xcRYGfzW0ii5a00DctERhMB"
+            stripeKey={process.env.REACT_APP_STRIPE_KEY}
           >
             <button className="btn buy-btn" disabled={user ? false : true}>
               Buy

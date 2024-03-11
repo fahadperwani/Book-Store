@@ -11,7 +11,7 @@ function Book() {
   const [{ idx }, dispatch] = useStateValue();
   const { id, genre } = useParams();
   const { title, img, desc, reviews, price, rating, author } = useFetch(
-    `http://localhost:5000/genre/${genre}/${id}`
+    process.env.REACT_APP_BACKEND_URL + `/genre/${genre}/${id}`
   );
   const { user } = useUserAuth();
 

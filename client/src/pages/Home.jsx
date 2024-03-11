@@ -5,8 +5,12 @@ import useFetch from "../useFetch";
 import "../styles/Home.css";
 
 function Home() {
-  const bestSeller = useFetch("http://localhost:5000/genre/bestSellers");
-  const newRelease = useFetch("http://localhost:5000/genre/newRelease");
+  const bestSeller = useFetch(
+    process.env.REACT_APP_BACKEND_URL + "/genre/bestSellers"
+  );
+  const newRelease = useFetch(
+    process.env.REACT_APP_BACKEND_URL + "/genre/newRelease"
+  );
   return (
     <section className="home">
       <Search />

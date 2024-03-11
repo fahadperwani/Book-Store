@@ -12,7 +12,10 @@ const __dirname = dirname(__filename);
 
 mongoose
   .connect(process.env.MONGODB_URL)
-  .then(() => console.log("Connected to the database........."));
+  .then(() => console.log("Connected to the database........."))
+  .console.error((err) => {
+    console.log(err);
+  });
 const app = express();
 
 app.use(express.json());

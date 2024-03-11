@@ -22,7 +22,7 @@ function Cart() {
       "Content-Type": "application/json",
     };
 
-    return fetch("http://localhost:5000/stripe/payment", {
+    return fetch(process.env.REACT_APP_BACKEND_URL + "/stripe/payment", {
       method: "POST",
       headers,
       body: JSON.stringify(body),
