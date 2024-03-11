@@ -5,7 +5,7 @@ import { scrapper as bookScrapper } from "./bookScrapper.js";
 import { getBookModel } from "../models/bookModel.js";
 import mongoose from "mongoose";
 
-mongoose.connect("mongodb://127.0.0.1:27017/ExpoProject").then(async () => {
+mongoose.connect(process.env.MONGODB_URL).then(async () => {
   console.log("DataBase Connected");
   for (let i = 0; i < types.length; i++) {
     const Link = getLinkModel(types[i] + "link");
